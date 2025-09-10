@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/generate-docx', (req, res) => {
-  // Render the HTML template with form data
+  
   res.render('document', {
     ...req.body,
     data_atual: new Date().toLocaleDateString('pt-BR')
@@ -35,7 +35,7 @@ app.post('/generate-docx', (req, res) => {
       header: true,
     }).then((buffer) => {
       // Send the document
-      res.setHeader('Content-Disposition', 'attachment; filename=declaracao_interesse.docx');
+      res.setHeader('Content-Disposition', 'attachment; filename=dados-reurb.docx');
       res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
       res.send(buffer);
     }).catch((error) => {
